@@ -6,27 +6,90 @@
   <title>Flexcore</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="relative bg-gradient-to-b from-blue-50 to-blue-200 text-blue-900 font-sans min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<body class="font-sans text-blue-900">
 
-  <!-- Massive Infinity Symbol in Background -->
-  <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
-    <div class="text-[70vw] text-blue-300 opacity-10 leading-none drop-shadow-xl">
-      ∞
+  <!-- Section 1: Hero -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-blue-200 overflow-hidden">
+    <!-- Infinity Background -->
+    <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
+      <div class="text-[70vw] text-blue-300 opacity-10 leading-none drop-shadow-xl">
+        ∞
+      </div>
     </div>
-  </div>
 
-  <!-- Hero Content -->
-  <main class="z-10 text-center px-6">
-    <h1 class="text-[12vw] md:text-[10vw] font-extrabold text-blue-800 tracking-wide mb-8 drop-shadow-md">
-      FLEXCORE
-    </h1>
-    <p class="text-2xl md:text-3xl max-w-3xl text-blue-700 mx-auto font-medium leading-relaxed drop-shadow-sm">
-      A revolutionary step in footwear. FLEXCORE lets you adapt, perform, and express yourself — all in one modular shoe. Engineered for movement, designed for life.
-    </p>
-  </main>
+    <!-- Hero Content -->
+    <div class="z-10 text-center px-6">
+      <h1 class="text-[12vw] md:text-[10vw] font-extrabold text-blue-800 tracking-wide mb-8 drop-shadow-md">
+        FLEXCORE
+      </h1>
+      <p class="text-2xl md:text-3xl max-w-3xl text-blue-700 mx-auto font-medium leading-relaxed drop-shadow-sm">
+        A revolutionary step in footwear. FLEXCORE lets you adapt, perform, and express yourself — all in one modular shoe. Engineered for movement, designed for life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Product Options -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-7xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold text-blue-900 mb-4">Choose Your Core</h2>
+      <p class="text-lg text-blue-600">Each pair is customizable. Pick your style. Pick your performance.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <!-- Basic Bare -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Basic+Bare" alt="Basic Bare" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Basic Bare</h3>
+        <p class="text-blue-700 mb-2">One pair with no soles. Lace or slip-in.</p>
+        <p class="text-xl font-bold text-blue-900">$19.99</p>
+      </div>
+
+      <!-- Casual Cores -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Casual+Cores" alt="Casual Cores" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Casual Cores</h3>
+        <p class="text-blue-700 mb-2">Perfect for daily wear, sports, and fashion.</p>
+        <p class="text-xl font-bold text-blue-900">$19.99</p>
+      </div>
+
+      <!-- Cleat Cores -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Cleat+Cores" alt="Cleat Cores" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Cleat Cores</h3>
+        <p class="text-blue-700 mb-2">Soccer cleats recommended by top coaches.</p>
+        <p class="text-xl font-bold text-blue-900">$19.99</p>
+      </div>
+
+      <!-- Starter Kit -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Starter+Kit" alt="Starter Kit" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Starter Kit</h3>
+        <p class="text-blue-700 mb-2">Basic Bare + any 2 cores of your choice.</p>
+        <p class="text-xl font-bold text-blue-900">$99.99</p>
+      </div>
+
+      <!-- Roller Cores -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Roller+Cores" alt="Roller Cores" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Roller Cores</h3>
+        <p class="text-blue-700 mb-2">Rollers on the bottom. Basic or advanced.</p>
+        <p class="text-xl font-bold text-blue-900">$94.99</p>
+      </div>
+
+      <!-- Running Cores -->
+      <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://via.placeholder.com/300x200?text=Running+Cores" alt="Running Cores" class="w-full rounded mb-4">
+        <h3 class="text-2xl font-bold text-blue-800 mb-2">Running Cores</h3>
+        <p class="text-blue-700 mb-2">Lightweight, cushioned, track-ready design.</p>
+        <p class="text-xl font-bold text-blue-900">$59.99</p>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="w-full bg-blue-800 text-white py-6 text-center text-sm mt-20 z-10">
+  <footer class="bg-blue-800 text-white py-6 text-center text-sm">
     &copy; 2025 Flexcore. All rights reserved.
   </footer>
 
