@@ -12,6 +12,32 @@
       overflow-x: hidden;
       background: #8c52ff;
       position: relative;
+      text-align: center;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.4);
+      padding: 1rem 0;
+      z-index: 1001;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7ba9ff;
     }
 
     #color-swipe {
@@ -100,7 +126,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-top: 2rem;
+      margin-top: 8rem;
       color: #ffffff;
       text-shadow:
         0 0 12px #1d419f,
@@ -126,7 +152,10 @@
     }
 
     .arrow-bounce {
-      margin: 4rem auto 2rem auto;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
       width: 60px;
       height: 60px;
       background-color: #0a2472;
@@ -138,8 +167,6 @@
       align-items: center;
       cursor: pointer;
       animation: bounce 2s infinite;
-      transition: background-color 0.3s ease;
-      position: relative;
       z-index: 2;
     }
 
@@ -166,6 +193,7 @@
       background: #f4f4ff;
       padding: 5rem 2rem;
       min-height: 100vh;
+      position: relative;
     }
 
     .product-grid {
@@ -182,6 +210,12 @@
       padding: 1rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
     }
 
     .product-card img {
@@ -199,12 +233,33 @@
     .product-card .desc {
       color: #444;
       margin-bottom: 0.5rem;
+      font-size: 0.95rem;
     }
 
     .product-card .price {
       font-size: 1.2rem;
       font-weight: bold;
       color: #233ce6;
+    }
+
+    .buy-now-fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #233ce6;
+      color: white;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      z-index: 1002;
+      display: none;
+    }
+
+    .buy-now-fixed.visible {
+      display: block;
     }
 
     @media (max-width: 768px) {
@@ -216,7 +271,15 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#feature">Features</a>
+    <a href="#support">Support</a>
+  </nav>
+
   <div id="color-swipe"></div>
+
   <section id="home">
     <div class="infinity"></div>
     <div class="content">
@@ -234,6 +297,7 @@
       </div>
     </div>
   </section>
+
   <section class="product-section" id="products">
     <div class="product-grid">
       <div class="product-card">
@@ -246,7 +310,7 @@
         <img src="https://i.imgur.com/myAyR8N.png" alt="Starter Kit" />
         <h3>Starter Kit</h3>
         <p class="desc">Basic Bare + any 2 cores of your choice.</p>
-        <p class="price">$99.99</p>
+        <p class="price">$94.99</p>
       </div>
       <div class="product-card">
         <img src="https://i.imgur.com/MfhviPW.png" alt="Casual Cores" />
@@ -274,6 +338,9 @@
       </div>
     </div>
   </section>
+
+  <div class="buy-now-fixed" id="buyNowBar">Buy Now</div>
+
   <script>
     const scrollButton = document.getElementById('scrollButton');
     const swipe = document.getElementById('color-swipe');
@@ -285,6 +352,14 @@
           swipe.style.width = '0';
         }, 700);
       }, 400);
+    });
+
+    const buyNowBar = document.getElementById('buyNowBar');
+    window.addEventListener('scroll', () => {
+      const products = document.getElementById('products');
+      const rect = products.getBoundingClientRect();
+      const visible = rect.top < window.innerHeight && rect.bottom > 0;
+      buyNowBar.classList.toggle('visible', visible);
     });
   </script>
 </body>
