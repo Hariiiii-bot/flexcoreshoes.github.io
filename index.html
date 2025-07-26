@@ -100,5 +100,28 @@ FlexCore is a stylish, versatile footwear system featuring interchangeable cores
       buyNowBar.classList.toggle('visible', visible);
     });
   </script>
+  <div id="chatbotToggle" class="chatbot-icon" title="Chat with us">💬</div>
+
+<div id="chatbotContainer" class="chatbot-box">
+  <div class="chatbot-header">
+    <span>FlexBot 🤖</span>
+    <button id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
+  </div>
+  <div id="chatbotMessages" class="chatbot-messages">
+    <div class="message bot"><strong>FlexBot:</strong> Hi! How can I help you today?</div>
+  </div>
+  <form onsubmit="sendMessage(event)">
+    <input id="userInput" type="text" placeholder="Type your message..." />
+  </form>
+  <div class="faq-buttons">
+    <button onclick="handleFAQ('How do I use FlexCore?')">How to Use</button>
+    <button onclick="handleFAQ('What is your return policy?')">Returns</button>
+    <button onclick="handleFAQ('Where is my order?')">Track Order</button>
+    <button onclick="handleFAQ('How do I contact support?')">Contact</button>
+  </div>
+</div>
+
+<!-- Link to chatbot.js -->
+<script src="chatbot.js"></script>
 </body>
 </html>
