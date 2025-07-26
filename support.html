@@ -3,167 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FlexCore - Support</title>
+  <title>FlexCore | Support</title>
   <link rel="icon" href="https://i.imgur.com/vjMQVmY.png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Norwester&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f4f4ff;
-      margin: 0;
-      padding: 2rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #222;
-    }
-    nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(0,0,0,0.4);
-      padding: 1rem 0;
-      z-index: 1001;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 2rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #7ba9ff;
-    }
-
-    h1 {
-      font-family: 'Norwester', sans-serif;
-      color: #233ce6;
-      text-align: center;
-      margin-bottom: 2rem;
-      user-select: none;
-    }
-
-    form {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      margin-bottom: 3rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #1d419f;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      resize: vertical;
-      font-family: 'Poppins', sans-serif;
-      transition: border-color 0.3s ease;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #233ce6;
-      outline: none;
-    }
-
-    button {
-      background-color: #233ce6;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-    button:hover {
-      background-color: #1d419f;
-    }
-
-    .faq-section {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 2rem;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid #ddd;
-      padding: 1rem 0;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-question {
-      font-weight: 700;
-      color: #1d419f;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.1rem;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      margin-top: 0.5rem;
-      color: #444;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      padding-left: 1rem;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 500px; /* enough for most answers */
-      padding-left: 1rem;
-    }
-
-    .arrow {
-      font-size: 1.2rem;
-      transition: transform 0.4s ease;
-      user-select: none;
-      display: inline-block;
-    }
-
-    .faq-item.active .arrow {
-      transform: rotate(90deg);
-    }
-
-    .arrow:hover {
-      animation: bounceArrow 0.6s ease infinite;
-    }
-
-    @keyframes bounceArrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
@@ -173,100 +16,69 @@
     <a href="support.html">Support</a>
   </nav>
 
-  <main style="padding-top: 5rem;">
-    <h1>Customer Support</h1>
-
-    <form id="supportForm" aria-label="Contact form for customer support">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="name" required placeholder="Your full name" />
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
-
-      <label for="message">Message *</label>
-      <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <section class="faq-section" aria-label="Frequently asked questions">
-      <div class="faq-item" tabindex="0" role="button" aria-expanded="false" aria-controls="faq1-answer">
-        <div class="faq-question">
-          <span>What is the return policy?</span>
-          <span class="arrow">▶</span>
-        </div>
-        <div class="faq-answer" id="faq1-answer">
-          You can return any product within 30 days of purchase in original condition for a full refund.
-        </div>
-      </div>
-
-      <div class="faq-item" tabindex="0" role="button" aria-expanded="false" aria-controls="faq2-answer">
-        <div class="faq-question">
-          <span>How long does shipping take?</span>
-          <span class="arrow">▶</span>
-        </div>
-        <div class="faq-answer" id="faq2-answer">
-          Standard shipping takes 5-7 business days. Expedited options are available at checkout.
-        </div>
-      </div>
-
-      <div class="faq-item" tabindex="0" role="button" aria-expanded="false" aria-controls="faq3-answer">
-        <div class="faq-question">
-          <span>How can I track my order?</span>
-          <span class="arrow">▶</span>
-        </div>
-        <div class="faq-answer" id="faq3-answer">
-          Once your order ships, you will receive an email with a tracking number and link.
-        </div>
-      </div>
-
-      <div class="faq-item" tabindex="0" role="button" aria-expanded="false" aria-controls="faq4-answer">
-        <div class="faq-question">
-          <span>Do you offer warranty?</span>
-          <span class="arrow">▶</span>
-        </div>
-        <div class="faq-answer" id="faq4-answer">
-          Yes! We offer a 1-year warranty against manufacturing defects.
-        </div>
-      </div>
-
-    </section>
+  <main style="padding-top: 100px; text-align: center;">
+    <h1 style="color: #233ce6;">Need Help? We're Here!</h1>
+    <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+      Welcome to FlexCore Support! Ask FlexBot your questions or check our FAQ for quick answers about shipping, returns, and more.
+    </p>
   </main>
 
+  <!-- Chatbot -->
+  <div id="chatbot">
+    <div id="chat-header">💬 FlexBot – Your Shoe Support Buddy</div>
+    <div id="chat-log"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
   <script>
-    // FAQ accordion toggle
-    const faqItems = document.querySelectorAll('.faq-item');
+    const chatLog = document.getElementById("chat-log");
+    const input = document.getElementById("chat-input");
 
-    faqItems.forEach(item => {
-      function toggleFaq() {
-        const isActive = item.classList.contains('active');
+    function sendMessage() {
+      const text = input.value.trim();
+      if (text === "") return;
 
-        // Close all
-        faqItems.forEach(i => {
-          i.classList.remove('active');
-          i.setAttribute('aria-expanded', 'false');
-        });
+      appendMessage(text, "user");
 
-        if (!isActive) {
-          item.classList.add('active');
-          item.setAttribute('aria-expanded', 'true');
-        }
+      const response = getBotResponse(text.toLowerCase());
+      setTimeout(() => {
+        appendMessage(response, "bot");
+      }, 600);
+
+      input.value = "";
+    }
+
+    function appendMessage(msg, sender) {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = sender + "-msg";
+      msgDiv.textContent = msg;
+      chatLog.appendChild(msgDiv);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      if (input.includes("return") || input.includes("refund")) {
+        return "We offer 30-day free returns — just keep the box and receipt!";
+      } else if (input.includes("shipping") || input.includes("ship")) {
+        return "We offer free U.S. shipping. Orders usually arrive in 3–5 business days.";
+      } else if (input.includes("how does it work") || input.includes("modular")) {
+        return "FlexCore lets you swap out cores to change your shoe’s function — from fashion to sport!";
+      } else if (input.includes("hello") || input.includes("hi")) {
+        return "Hey there! 👋 I'm FlexBot. How can I help you today?";
+      } else if (input.includes("track") || input.includes("order")) {
+        return "You can track your order using the link in your email. Need help? Let me know!";
+      } else if (input.includes("sustainability") || input.includes("eco")) {
+        return "All FlexCore products are made with eco-friendly materials 🌱 and recyclable packaging!";
+      } else {
+        return "Hmm... I'm not sure. Try asking about shipping, returns, or how our shoes work!";
       }
+    }
 
-      item.addEventListener('click', toggleFaq);
-      item.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleFaq();
-        }
-      });
-    });
-
-    // Simple form submission simulation
-    document.getElementById('supportForm').addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Thank you for reaching out! We will get back to you soon.');
-      e.target.reset();
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") sendMessage();
     });
   </script>
 </body>
