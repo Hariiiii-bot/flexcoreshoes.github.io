@@ -2,41 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support – FlexCore</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlexCore Support</title>
+  <link rel="stylesheet" href="support.css" />
   <link rel="stylesheet" href="chatbot.css" />
 </head>
 <body>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="features.html">Features</a>
-    <a href="support.html">Support</a>
+    <a href="support.html" class="active">Support</a>
   </nav>
 
-  <main class="support-page">
-    <h1>Need Help? We’ve Got You.</h1>
-    <form id="supportForm">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" required />
+  <main class="support-container">
+    <h1>Contact FlexCore Support</h1>
+    <p>Need help? Fill out the form and we’ll get back to you shortly.</p>
 
-      <label for="email">Your Email:</label>
-      <input type="email" id="email" required />
+    <form class="support-form" id="supportForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" required placeholder="Your Name" />
 
-      <label for="message">Your Concern:</label>
-      <textarea id="message" rows="5" required></textarea>
+      <label for="email">Email</label>
+      <input type="email" id="email" required placeholder="you@example.com" />
+
+      <label for="message">Your Concern</label>
+      <textarea id="message" rows="5" required placeholder="How can we help you?"></textarea>
 
       <button type="submit">Submit</button>
     </form>
+    <p class="form-status" id="formStatus"></p>
   </main>
 
-  <!-- Floating Chatbot Icon -->
-  <div id="chatbotToggle" class="chatbot-icon" title="Chat with us">
-    💬
-  </div>
-
-  <!-- Chatbot Container -->
+  <!-- Floating Chatbot -->
+  <div id="chatbotToggle" class="chatbot-icon">💬</div>
   <div id="chatbotContainer" class="chatbot-box">
     <div class="chatbot-header">
       <span>FlexBot 🤖</span>
@@ -57,5 +57,24 @@
   </div>
 
   <script src="chatbot.js"></script>
+  <script>
+    document.getElementById('supportForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+
+      if (name && email && message) {
+        status.textContent = '✅ Your message has been sent!';
+        status.style.color = 'green';
+        this.reset();
+      } else {
+        status.textContent = '❗ Please fill in all fields.';
+        status.style.color = 'red';
+      }
+    });
+  </script>
+
 </body>
 </html>
