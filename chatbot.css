@@ -1,0 +1,118 @@
+.chatbot-icon {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #233ce6;
+  color: white;
+  font-size: 1.8rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.chatbot-box {
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  width: 300px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+.chatbot-box.open {
+  display: flex;
+}
+
+.chatbot-header {
+  background: #233ce6;
+  color: white;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+.chatbot-messages .message {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.message.user {
+  text-align: right;
+  color: #1d419f;
+}
+
+.message.bot {
+  text-align: left;
+  color: #333;
+}
+
+form {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+form input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+form input:focus {
+  outline: none;
+}
+
+.faq-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #f0f0ff;
+}
+
+.faq-buttons button {
+  flex: 1 1 auto;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  border: none;
+  background: #1d419f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.faq-buttons button:hover {
+  background: #0a2472;
+}
+
+.dark-mode {
+  background: #121212;
+  color: white;
+}
+
+.dark-mode input, .dark-mode textarea {
+  background: #1e1e1e;
+  color: white;
+}
+
+.chatbot-box.dark {
+  background: #1e1e1e;
+  color: white;
+}
