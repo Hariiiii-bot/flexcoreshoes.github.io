@@ -3,134 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flexcore</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Flexcore Landing Page</title>
 
-  <!-- Load Fonts -->
+  <!-- Load fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cocomat+Pro&family=Norwester&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cocomat+Pro&display=swap');
-
     @font-face {
       font-family: 'Futura';
       src: local('Futura'), url('https://fonts.cdnfonts.com/s/15364/Futura-Bold.woff') format('woff');
       font-weight: bold;
     }
-
-    @font-face {
-      font-family: 'Norwester';
-      src: url('https://fonts.cdnfonts.com/s/62935/Norwester-Regular.woff') format('woff');
-    }
-
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      font-family: sans-serif;
-      background: linear-gradient(90deg, #a280ff, #4a78d1);
-      overflow-x: hidden;
-      color: #1a202c;
+      padding: 0;
+      scroll-behavior: smooth;
+      background: linear-gradient(90deg, #985dff, #2061d7);
+      transition: background 0.5s ease;
     }
-
-    section.hero {
-      min-height: 100vh;
+    body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      color: white;
+      overflow-x: hidden;
       position: relative;
-      padding: 0 1rem;
-      text-align: center;
-      z-index: 10;
+      font-smooth: antialiased;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      font-family: 'Cocomat Pro', serif;
     }
-
-    .flexcore-title {
-      font-family: 'Futura', sans-serif;
-      font-size: 230px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-      user-select: none;
-    }
-
-    .flex-part {
-      color: #1d419f;
-    }
-
-    .core-part {
-      color: #233ce6;
-    }
-
-    .slogan {
-      font-family: 'Norwester', sans-serif;
-      color: #0f2f76;
-      font-size: 48px;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      user-select: none;
-      display: inline-flex;
-      gap: 0.5rem;
-      justify-content: center;
-      align-items: center;
-      white-space: nowrap;
-    }
-
-    .slogan span {
-      font-size: 48px;
-    }
-
-    .description {
-      font-family: 'Cocomat Pro', sans-serif;
-      color: #7b7afb;
-      font-size: 28px;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.3;
-      user-select: none;
-      margin-bottom: 4rem;
-    }
-
-    .infinity-bg {
-      position: absolute;
+    .infinity-background {
+      position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1200px;
+      transform: translate(-50%, -50%) rotate(0deg);
+      font-size: 120vw;
       color: black;
-      opacity: 0.05;
+      opacity: 0.06;
       z-index: 0;
       pointer-events: none;
+      user-select: none;
       font-family: Arial, sans-serif;
-      filter: drop-shadow(0 0 15px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 0 15px rgba(0,0,0,0.15));
+      white-space: nowrap;
+      animation: slow-rotate 80s linear infinite;
     }
-
     .wispy-lines {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      width: 1300px;
-      height: 1300px;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 130vw;
+      height: 130vw;
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(ellipse at center, rgba(0,0,0,0.04) 10%, transparent 70%),
-        repeating-radial-gradient(circle at center, rgba(0,0,0,0.01) 2%, transparent 10%);
+        radial-gradient(ellipse at center, rgba(0,0,0,0.035) 10%, transparent 70%),
+        repeating-radial-gradient(circle at center, rgba(0,0,0,0.008) 2%, transparent 10%);
       mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
       border-radius: 50%;
-      filter: blur(30px);
+      filter: blur(32px);
+      animation: slow-rotate-reverse 110s linear infinite;
     }
-
+    @keyframes slow-rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes slow-rotate-reverse {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(-360deg); }
+    }
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      padding: 0 1rem;
+      text-align: center;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeSlideIn 1.2s forwards ease-out;
+      animation-delay: 0.3s;
+    }
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .title {
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      font-size: clamp(5rem, 20vw, 12rem);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      display: inline-flex;
+      user-select: text;
+    }
+    .title .flex {
+      color: #1d419f;
+    }
+    .title .core {
+      color: #233ce6;
+    }
+    .slogan {
+      font-family: 'Norwester', sans-serif;
+      color: #0f2f76;
+      font-size: clamp(1.5rem, 3vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      user-select: text;
+    }
+    .description {
+      font-family: 'Cocomat Pro', sans-serif;
+      color: #7b7afb;
+      font-size: clamp(1rem, 2vw, 1.8rem);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+      user-select: text;
+    }
+    @media (max-width: 480px) {
+      .title {
+        font-size: 8rem;
+      }
+      .slogan {
+        font-size: 1.8rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(12px); }
     }
-
-    .bounce {
-      animation: bounce 2s infinite;
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px #193a99; }
+      50% { box-shadow: 0 0 18px #587dff; }
     }
-
     .down-arrow-wrapper {
       position: absolute;
       bottom: 40px;
@@ -138,8 +152,9 @@
       transform: translateX(-50%);
       z-index: 10;
       cursor: pointer;
+      user-select: none;
+      outline-offset: 4px;
     }
-
     .arrow-circle {
       background-color: #0a1a4f;
       width: 56px;
@@ -148,9 +163,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 5px 10px rgba(10, 26, 79, 0.6);
+      animation: bounce 2s infinite, pulseGlow 3s infinite;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 10px #193a99;
     }
-
+    .arrow-circle:hover, .down-arrow-wrapper:focus-visible .arrow-circle {
+      background-color: #1642a0;
+      box-shadow: 0 0 20px #7ba9ff;
+    }
     .arrow-svg {
       width: 28px;
       height: 28px;
@@ -159,42 +179,40 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
+      user-select: none;
     }
-
-    section.products {
+    #products {
       background: white;
-      padding: 4rem 1.5rem 6rem;
+      padding: 4rem 2rem 6rem;
       max-width: 1200px;
       margin: 0 auto 6rem;
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      color: #1a202c;
+      font-family: 'Cocomat Pro', serif;
     }
-
-    section.products h2 {
+    #products h2 {
       font-family: 'Futura', sans-serif;
       font-size: 3rem;
       font-weight: 900;
       text-align: center;
       color: #1d419f;
       margin-bottom: 0.5rem;
-      user-select: none;
+      user-select: text;
     }
-
-    section.products p.subtitle {
+    #products p.subtitle {
       font-family: 'Norwester', sans-serif;
       font-size: 1.5rem;
       text-align: center;
       color: #4a78d1;
       margin-bottom: 3rem;
-      user-select: none;
+      user-select: text;
     }
-
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.5rem;
     }
-
     .product-card {
       background: #e7eaff;
       border-radius: 1rem;
@@ -202,159 +220,110 @@
       box-shadow: 0 6px 15px rgba(29, 65, 159, 0.15);
       text-align: center;
       user-select: none;
-      transition: box-shadow 0.3s ease;
-      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
     }
-
     .product-card:hover {
-      box-shadow: 0 10px 25px rgba(35, 60, 230, 0.35);
+      box-shadow: 0 10px 30px rgba(35, 60, 230, 0.35);
+      transform: scale(1.05);
     }
-
     .product-card img {
       width: 100%;
       height: 220px;
       object-fit: cover;
       border-radius: 1rem;
       margin-bottom: 1.2rem;
+      user-select: none;
     }
-
     .product-card h3 {
       font-family: 'Futura', sans-serif;
       font-size: 1.8rem;
       font-weight: 900;
       color: #233ce6;
       margin-bottom: 0.4rem;
+      user-select: text;
     }
-
     .product-card p.desc {
       font-family: 'Cocomat Pro', sans-serif;
       font-size: 1.1rem;
       color: #5656b8;
       margin-bottom: 1rem;
       min-height: 48px;
+      user-select: text;
     }
-
     .product-card p.price {
       font-family: 'Futura', sans-serif;
       font-weight: 700;
       font-size: 1.5rem;
       color: #1d419f;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      .flexcore-title {
-        font-size: 140px;
-      }
-      .slogan {
-        font-size: 32px;
-        white-space: normal;
-        gap: 0.25rem;
-      }
-      .description {
-        font-size: 20px;
-        max-width: 90%;
-        margin-bottom: 3rem;
-      }
-    }
-
-    /* Swipe animation overlay */
-    #swipe-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: linear-gradient(90deg, #8c52ff, #004aad);
-      z-index: 10000;
-      pointer-events: none;
-      transform: translateX(-100%);
-      transition: transform 0.5s ease-in-out;
-    }
-
-    #swipe-overlay.active {
-      pointer-events: auto;
-      transform: translateX(0);
+      user-select: text;
     }
   </style>
 </head>
-
 <body>
-  <!-- Infinity Background -->
-  <div class="infinity-bg">∞</div>
-  <div class="wispy-lines"></div>
+  <div class="infinity-background" aria-hidden="true">∞</div>
+  <div class="wispy-lines" aria-hidden="true"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="flexcore-title">
-      <span class="flex-part">Flex</span><span class="core-part">core</span>
-    </div>
-
-    <p class="slogan">
-      <span>⭐</span> Transform Every Step! <span>⭐</span>
-    </p>
-
+  <div class="content" role="main">
+    <h1 class="title" aria-label="Flexcore">
+      <span class="flex">Flex</span><span class="core">core</span>
+    </h1>
+    <p class="slogan">Transform Every Step!</p>
     <p class="description">
       An all NEW innovative, stylish footwear system, with Interchangeable Cores designed for any activity!
     </p>
+  </div>
 
-    <!-- Bouncing Down Arrow -->
-    <div id="arrow" class="down-arrow-wrapper" role="button" tabindex="0" aria-label="Scroll down">
-      <div class="arrow-circle bounce">
-        <svg class="arrow-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
+  <div id="arrow" class="down-arrow-wrapper" role="button" tabindex="0" aria-label="Scroll down to product options">
+    <div class="arrow-circle">
+      <svg class="arrow-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+        <path d="M19 9l-7 7-7-7" />
+      </svg>
     </div>
-  </section>
+  </div>
 
-  <!-- Products Section -->
-  <section id="products" class="products" aria-label="Product Options">
+  <section id="products" aria-label="Product Options">
     <h2>Choose Your Core</h2>
     <p class="subtitle">Each pair is customizable. Pick your style. Pick your performance.</p>
 
     <div class="product-grid">
-      <!-- Basic Bare -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1596464716121-08cbd1bfb6a2?auto=format&fit=crop&w=800&q=80" alt="Basic Bare" />
+        <img src="https://i.imgur.com/GuSEaVq.png" alt="Basic Bare" />
         <h3>Basic Bare</h3>
         <p class="desc">One pair with no soles. Lace or slip-in.</p>
         <p class="price">$19.99</p>
       </div>
 
-      <!-- Casual Cores -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Casual Cores" />
+        <img src="https://i.imgur.com/MfhviPW.png" alt="Casual Cores" />
         <h3>Casual Cores</h3>
         <p class="desc">Perfect for daily wear, sports, and fashion.</p>
         <p class="price">$19.99</p>
       </div>
 
-      <!-- Cleat Cores -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f3e?auto=format&fit=crop&w=800&q=80" alt="Cleat Cores" />
+        <img src="http://i.imgur.com/KmfodAU.png" alt="Cleat Cores" />
         <h3>Cleat Cores</h3>
         <p class="desc">Soccer cleats recommended by top coaches.</p>
         <p class="price">$19.99</p>
       </div>
 
-      <!-- Starter Kit -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1603808033192-082d6919d5a2?auto=format&fit=crop&w=800&q=80" alt="Starter Kit" />
+        <img src="https://i.imgur.com/myAyR8N.png" alt="Starter Kit" />
         <h3>Starter Kit</h3>
         <p class="desc">Basic Bare + any 2 cores of your choice.</p>
         <p class="price">$99.99</p>
       </div>
 
-      <!-- Roller Cores -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1560732488-6b8b9c1e8032?auto=format&fit=crop&w=800&q=80" alt="Roller Cores" />
+        <img src="https://i.imgur.com/MuvrLOV.png" alt="Roller Cores" />
         <h3>Roller Cores</h3>
         <p class="desc">Rollers on the bottom. Basic or advanced.</p>
         <p class="price">$19.99</p>
       </div>
 
-      <!-- Running Cores -->
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1586796671524-1280cf1d5c16?auto=format&fit=crop&w=800&q=80" alt="Running Cores" />
+        <img src="https://i.imgur.com/kyuImHk.png" alt="Running Cores" />
         <h3>Running Cores</h3>
         <p class="desc">Lightweight, cushioned, track-ready design.</p>
         <p class="price">$19.99</p>
@@ -362,30 +331,22 @@
     </div>
   </section>
 
-  <!-- Swipe animation overlay -->
-  <div id="swipe-overlay"></div>
-
   <script>
     const arrow = document.getElementById('arrow');
-    const swipe = document.getElementById('swipe-overlay');
     const productsSection = document.getElementById('products');
+    const html = document.documentElement;
 
     arrow.addEventListener('click', () => {
-      // Show swipe overlay
-      swipe.classList.add('active');
-
-      // Scroll smoothly to products after short delay for swipe animation start
+      html.style.transition = "background 0.5s ease";
+      html.style.background = "linear-gradient(90deg, #6f3aff, #003ea7)";
       setTimeout(() => {
         productsSection.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-
-      // Remove swipe overlay after animation duration
+      }, 150);
       setTimeout(() => {
-        swipe.classList.remove('active');
-      }, 600);
+        html.style.background = "linear-gradient(90deg, #985dff, #2061d7)";
+      }, 1000);
     });
 
-    // Optional: also scroll on pressing Enter or Space when arrow is focused
     arrow.addEventListener('keydown', e => {
       if(e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
