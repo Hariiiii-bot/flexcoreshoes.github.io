@@ -1,106 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flexcore Landing Page</title>
-
-  <!-- Load fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cocomat+Pro&family=Norwester&display=swap" rel="stylesheet" />
+  <title>FlexCore</title>
+  <!-- Changed to Poppins instead of Futura -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Norwester&display=swap" rel="stylesheet" />
   <style>
-    @font-face {
-      font-family: 'Futura';
-      src: local('Futura'), url('https://fonts.cdnfonts.com/s/15364/Futura-Bold.woff') format('woff');
-      font-weight: bold;
-    }
     html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      background: linear-gradient(90deg, #985dff, #2061d7);
-      transition: background 0.5s ease;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
+      margin: 0; padding: 0; height: 100%; scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
+      background: #8c52ff;
+      transition: background-color 0.8s ease;
+    }
+    body.scrolled {
+      background-color: #f4f4ff;
+    }
+    .hero {
+      height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
       position: relative;
-      font-smooth: antialiased;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      font-family: 'Cocomat Pro', serif;
+      color: white;
     }
-    .infinity-background {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      font-size: 120vw;
-      color: black;
-      opacity: 0.06;
+    .infinity {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: url('https://i.imgur.com/uiVsiW4.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.15;
       z-index: 0;
       pointer-events: none;
-      user-select: none;
-      font-family: Arial, sans-serif;
-      filter: drop-shadow(0 0 15px rgba(0,0,0,0.15));
-      white-space: nowrap;
-      animation: slow-rotate 80s linear infinite;
-    }
-    .wispy-lines {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      width: 130vw;
-      height: 130vw;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse at center, rgba(0,0,0,0.035) 10%, transparent 70%),
-        repeating-radial-gradient(circle at center, rgba(0,0,0,0.008) 2%, transparent 10%);
-      mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
-      border-radius: 50%;
-      filter: blur(32px);
-      animation: slow-rotate-reverse 110s linear infinite;
-    }
-    @keyframes slow-rotate {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    @keyframes slow-rotate-reverse {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(-360deg); }
     }
     .content {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      padding: 0 1rem;
-      text-align: center;
-      user-select: none;
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeSlideIn 1.2s forwards ease-out;
-      animation-delay: 0.3s;
-    }
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      z-index: 1;
+      padding: 2rem;
+      max-width: 800px;
     }
     .title {
-      font-family: 'Futura', sans-serif;
-      font-weight: bold;
-      font-size: clamp(5rem, 20vw, 12rem);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-      display: inline-flex;
-      user-select: text;
+      font-size: 14vw;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+      animation: popIn 1s ease-out;
+      font-family: 'Poppins', sans-serif;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
     .title .flex {
       color: #1d419f;
@@ -108,184 +58,139 @@
     .title .core {
       color: #233ce6;
     }
+    .description {
+      font-size: 1.8vw;
+      margin-top: 1rem;
+      color: white;
+      line-height: 1.3;
+    }
     .slogan {
       font-family: 'Norwester', sans-serif;
-      color: #0f2f76;
-      font-size: clamp(1.5rem, 3vw, 3rem);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      user-select: text;
+      color: #1e3a8a;
+      font-size: 3.5vw;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 1.5rem;
     }
-    .description {
-      font-family: 'Cocomat Pro', sans-serif;
-      color: #7b7afb;
-      font-size: clamp(1rem, 2vw, 1.8rem);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.4;
-      user-select: text;
-    }
-    @media (max-width: 480px) {
-      .title {
-        font-size: 8rem;
-      }
-      .slogan {
-        font-size: 1.8rem;
-      }
-      .description {
-        font-size: 1rem;
-      }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(12px); }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 10px #193a99; }
-      50% { box-shadow: 0 0 18px #587dff; }
-    }
-    .down-arrow-wrapper {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      cursor: pointer;
-      user-select: none;
-      outline-offset: 4px;
-    }
-    .arrow-circle {
-      background-color: #0a1a4f;
-      width: 56px;
-      height: 56px;
+
+    /* Circle arrow button */
+    .arrow-bounce {
+      margin: 4rem auto 2rem auto;
+      width: 60px;
+      height: 60px;
+      background-color: #0a2472;
       border-radius: 50%;
+      border: 3px solid #7ba9ff;
+      box-shadow: 0 0 10px rgba(123, 169, 255, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: bounce 2s infinite, pulseGlow 3s infinite;
+      cursor: pointer;
+      animation: bounce 2s infinite;
       transition: background-color 0.3s ease;
-      box-shadow: 0 0 10px #193a99;
+      position: relative;
+      z-index: 2;
     }
-    .arrow-circle:hover, .down-arrow-wrapper:focus-visible .arrow-circle {
-      background-color: #1642a0;
-      box-shadow: 0 0 20px #7ba9ff;
+    .arrow-bounce:hover {
+      background-color: #1a3a9a;
     }
-    .arrow-svg {
-      width: 28px;
-      height: 28px;
+    .arrow-bounce svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
       stroke: #7ba9ff;
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
-      fill: none;
-      user-select: none;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
     }
-    #products {
-      background: white;
-      padding: 4rem 2rem 6rem;
-      max-width: 1200px;
-      margin: 0 auto 6rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      color: #1a202c;
-      font-family: 'Cocomat Pro', serif;
+    /* Optional rotate arrow when active */
+    .arrow-bounce.active svg {
+      transform: rotate(180deg);
     }
-    #products h2 {
-      font-family: 'Futura', sans-serif;
-      font-size: 3rem;
-      font-weight: 900;
-      text-align: center;
-      color: #1d419f;
-      margin-bottom: 0.5rem;
-      user-select: text;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
-    #products p.subtitle {
-      font-family: 'Norwester', sans-serif;
-      font-size: 1.5rem;
-      text-align: center;
-      color: #4a78d1;
-      margin-bottom: 3rem;
-      user-select: text;
+
+    .product-section {
+      background: #f4f4ff;
+      padding: 5rem 2rem;
+      min-height: 100vh;
     }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .product-card {
-      background: #e7eaff;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 6px 15px rgba(29, 65, 159, 0.15);
+      background: white;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       text-align: center;
-      user-select: none;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      cursor: default;
-    }
-    .product-card:hover {
-      box-shadow: 0 10px 30px rgba(35, 60, 230, 0.35);
-      transform: scale(1.05);
     }
     .product-card img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 1rem;
-      margin-bottom: 1.2rem;
-      user-select: none;
+      border-radius: 8px;
+      height: auto;
+      object-fit: contain;
     }
     .product-card h3 {
-      font-family: 'Futura', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #233ce6;
-      margin-bottom: 0.4rem;
-      user-select: text;
-    }
-    .product-card p.desc {
-      font-family: 'Cocomat Pro', sans-serif;
-      font-size: 1.1rem;
-      color: #5656b8;
-      margin-bottom: 1rem;
-      min-height: 48px;
-      user-select: text;
-    }
-    .product-card p.price {
-      font-family: 'Futura', sans-serif;
-      font-weight: 700;
       font-size: 1.5rem;
-      color: #1d419f;
-      user-select: text;
+      margin: 0.5rem 0;
+    }
+    .product-card .desc {
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+    .product-card .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #233ce6;
+    }
+    /* Responsive for small screens */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 10vw;
+      }
+      .description {
+        font-size: 3vw;
+      }
+      .slogan {
+        font-size: 5vw;
+      }
+      .product-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="infinity-background" aria-hidden="true">∞</div>
-  <div class="wispy-lines" aria-hidden="true"></div>
 
-  <div class="content" role="main">
-    <h1 class="title" aria-label="Flexcore">
-      <span class="flex">Flex</span><span class="core">core</span>
-    </h1>
-    <p class="slogan">Transform Every Step!</p>
-    <p class="description">
-      An all NEW innovative, stylish footwear system, with Interchangeable Cores designed for any activity!
-    </p>
-  </div>
-
-  <div id="arrow" class="down-arrow-wrapper" role="button" tabindex="0" aria-label="Scroll down to product options">
-    <div class="arrow-circle">
-      <svg class="arrow-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
-        <path d="M19 9l-7 7-7-7" />
-      </svg>
+  <section class="hero" id="hero">
+    <div class="infinity"></div>
+    <div class="content">
+      <div class="title">
+        <span class="flex">FLEX</span><span class="core">CORE</span>
+      </div>
+      <div class="description">
+        Discover the ultimate in adaptability and style — FLEXCORE is the next-generation modular shoe system engineered for performance, fashion, and every lifestyle.
+      </div>
+      <div class="slogan">Transform Every Step!</div>
+      <div class="arrow-bounce" id="scrollButton" role="button" aria-label="Scroll to products" tabindex="0">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+          <path d="M12 4v16m0 0l-6-6m6 6l6-6" />
+        </svg>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <section id="products" aria-label="Product Options">
-    <h2>Choose Your Core</h2>
-    <p class="subtitle">Each pair is customizable. Pick your style. Pick your performance.</p>
-
+  <section class="product-section" id="products">
     <div class="product-grid">
       <div class="product-card">
         <img src="https://i.imgur.com/GuSEaVq.png" alt="Basic Bare" />
@@ -293,35 +198,30 @@
         <p class="desc">One pair with no soles. Lace or slip-in.</p>
         <p class="price">$19.99</p>
       </div>
-
-      <div class="product-card">
-        <img src="https://i.imgur.com/MfhviPW.png" alt="Casual Cores" />
-        <h3>Casual Cores</h3>
-        <p class="desc">Perfect for daily wear, sports, and fashion.</p>
-        <p class="price">$19.99</p>
-      </div>
-
-      <div class="product-card">
-        <img src="http://i.imgur.com/KmfodAU.png" alt="Cleat Cores" />
-        <h3>Cleat Cores</h3>
-        <p class="desc">Soccer cleats recommended by top coaches.</p>
-        <p class="price">$19.99</p>
-      </div>
-
       <div class="product-card">
         <img src="https://i.imgur.com/myAyR8N.png" alt="Starter Kit" />
         <h3>Starter Kit</h3>
         <p class="desc">Basic Bare + any 2 cores of your choice.</p>
         <p class="price">$99.99</p>
       </div>
-
+      <div class="product-card">
+        <img src="https://i.imgur.com/MfhviPW.png" alt="Casual Cores" />
+        <h3>Casual Cores</h3>
+        <p class="desc">Perfect for daily wear, sports, and fashion.</p>
+        <p class="price">$19.99</p>
+      </div>
+      <div class="product-card">
+        <img src="http://i.imgur.com/KmfodAU.png" alt="Cleat Cores" />
+        <h3>Cleat Cores</h3>
+        <p class="desc">Soccer cleats recommended by top coaches.</p>
+        <p class="price">$19.99</p>
+      </div>
       <div class="product-card">
         <img src="https://i.imgur.com/MuvrLOV.png" alt="Roller Cores" />
         <h3>Roller Cores</h3>
         <p class="desc">Rollers on the bottom. Basic or advanced.</p>
         <p class="price">$19.99</p>
       </div>
-
       <div class="product-card">
         <img src="https://i.imgur.com/kyuImHk.png" alt="Running Cores" />
         <h3>Running Cores</h3>
@@ -332,25 +232,20 @@
   </section>
 
   <script>
-    const arrow = document.getElementById('arrow');
-    const productsSection = document.getElementById('products');
-    const html = document.documentElement;
+    const scrollButton = document.getElementById('scrollButton');
+    scrollButton.addEventListener('click', () => {
+      // Animate background color change on body
+      document.body.classList.add('scrolled');
 
-    arrow.addEventListener('click', () => {
-      html.style.transition = "background 0.5s ease";
-      html.style.background = "linear-gradient(90deg, #6f3aff, #003ea7)";
-      setTimeout(() => {
-        productsSection.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
-      setTimeout(() => {
-        html.style.background = "linear-gradient(90deg, #985dff, #2061d7)";
-      }, 1000);
+      // Scroll smoothly to products section
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
     });
 
-    arrow.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        arrow.click();
+    // Optional: Remove background color change if user scrolls back up
+    window.addEventListener('scroll', () => {
+      const heroHeight = document.getElementById('hero').offsetHeight;
+      if (window.scrollY < heroHeight / 2) {
+        document.body.classList.remove('scrolled');
       }
     });
   </script>
