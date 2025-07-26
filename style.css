@@ -266,3 +266,80 @@ nav a:hover {
   .slogan { font-size: 5vw; }
   .product-grid { grid-template-columns: 1fr; }
 }
+#chatbot {
+  width: 350px;
+  height: 500px;
+  background: white;
+  border: 2px solid #233ce6;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 1005;
+}
+
+#chat-header {
+  background: #233ce6;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#chat-log {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+.user-msg, .bot-msg {
+  margin-bottom: 1rem;
+  max-width: 90%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  line-height: 1.4;
+}
+
+.user-msg {
+  background: #e0e0ff;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.bot-msg {
+  background: #f0f0f0;
+  align-self: flex-start;
+}
+
+#chat-input-container {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  font-size: 1rem;
+}
+
+#chat-input:focus {
+  outline: none;
+}
+
+#chat-input-container button {
+  background: #233ce6;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
