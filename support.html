@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FlexCore | Support</title>
-  <link rel="icon" href="https://i.imgur.com/vjMQVmY.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Norwester&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlexCore Support</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
 </head>
 <body>
   <nav>
@@ -16,89 +15,44 @@
     <a href="support.html">Support</a>
   </nav>
 
-  <main style="padding-top: 100px; text-align: center;">
-    <h1 style="color: #233ce6;">Need Help? We're Here!</h1>
-    <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-      Welcome to FlexCore Support! Click the chat icon to start chatting with FlexBot.
-    </p>
-  </main>
+  <section class="support-section">
+    <h1>Contact Support</h1>
+    <p>Need help? Fill out the form below and we’ll get back to you soon.</p>
+    <form class="support-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Your Concern</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
 
   <!-- Floating Chat Icon -->
-  <div id="chat-toggle" title="Chat with FlexBot">💬</div>
+  <div class="chatbot-icon" id="chatbotToggle">💬</div>
 
   <!-- Chatbot -->
-  <div id="chatbot" class="hidden">
-    <div id="chat-header">💬 FlexBot – Your Shoe Support Buddy</div>
-    <div id="chat-log"></div>
-    <div id="chat-input-container">
-      <input type="text" id="chat-input" placeholder="Ask me anything..." />
-      <button onclick="sendMessage()">Send</button>
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+      <span>FlexBot</span>
+      <button id="darkModeToggle">🌓</button>
     </div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="faq-buttons">
+      <button onclick="handleFAQ('Where is my order?')">📦 Order Status</button>
+      <button onclick="handleFAQ('What is your return policy?')">↩️ Return Policy</button>
+      <button onclick="handleFAQ('How do I use the FlexCore system?')">🧠 How to Use</button>
+    </div>
+    <form class="chatbot-form" onsubmit="sendMessage(event)">
+      <input type="text" id="userInput" placeholder="Ask something..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
   </div>
 
-  <script>
-    const chatLog = document.getElementById("chat-log");
-    const input = document.getElementById("chat-input");
-    const chatbot = document.getElementById("chatbot");
-    const toggle = document.getElementById("chat-toggle");
-
-    // Load chat history
-    window.addEventListener('load', () => {
-      const saved = localStorage.getItem("flexbot-chat");
-      if (saved) chatLog.innerHTML = saved;
-    });
-
-    // Toggle chatbot visibility
-    toggle.addEventListener("click", () => {
-      chatbot.classList.toggle("hidden");
-    });
-
-    function sendMessage() {
-      const text = input.value.trim();
-      if (!text) return;
-
-      appendMessage(text, "user");
-
-      const response = getBotResponse(text.toLowerCase());
-      setTimeout(() => {
-        appendMessage(response, "bot");
-      }, 500);
-
-      input.value = "";
-    }
-
-    function appendMessage(msg, sender) {
-      const msgDiv = document.createElement("div");
-      msgDiv.className = sender + "-msg";
-      msgDiv.textContent = msg;
-      chatLog.appendChild(msgDiv);
-      chatLog.scrollTop = chatLog.scrollHeight;
-
-      // Save to localStorage
-      localStorage.setItem("flexbot-chat", chatLog.innerHTML);
-    }
-
-    function getBotResponse(input) {
-      if (input.includes("return") || input.includes("refund")) {
-        return "We offer 30-day free returns — just keep the box and receipt!";
-      } else if (input.includes("shipping") || input.includes("ship")) {
-        return "Free U.S. shipping. Orders usually arrive in 3–5 business days.";
-      } else if (input.includes("how does it work") || input.includes("modular")) {
-        return "FlexCore lets you swap cores — change your shoe’s function instantly!";
-      } else if (input.includes("hello") || input.includes("hi")) {
-        return "Hey there! 👋 I'm FlexBot. How can I help you today?";
-      } else if (input.includes("track") || input.includes("order")) {
-        return "You can track your order from the email confirmation you received.";
-      } else if (input.includes("sustainability") || input.includes("eco")) {
-        return "All FlexCore products are made from eco-friendly and recyclable materials 🌱.";
-      } else {
-        return "Hmm... I'm not sure. Try asking about shipping, returns, or how our shoes work!";
-      }
-    }
-
-    input.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") sendMessage();
-    });
-  </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
