@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexCore Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support – FlexCore</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="chatbot.css" />
 </head>
@@ -15,42 +15,45 @@
     <a href="support.html">Support</a>
   </nav>
 
-  <section class="support-section">
-    <h1>Contact Support</h1>
-    <p>Need help? Fill out the form below and we’ll get back to you soon.</p>
-    <form class="support-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" required>
+  <main class="support-page">
+    <h1>Need Help? We’ve Got You.</h1>
+    <form id="supportForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" required />
 
-      <label for="message">Your Concern</label>
+      <label for="message">Your Concern:</label>
       <textarea id="message" rows="5" required></textarea>
 
       <button type="submit">Submit</button>
     </form>
-  </section>
+  </main>
 
-  <!-- Floating Chat Icon -->
-  <div class="chatbot-icon" id="chatbotToggle">💬</div>
+  <!-- Floating Chatbot Icon -->
+  <div id="chatbotToggle" class="chatbot-icon" title="Chat with us">
+    💬
+  </div>
 
-  <!-- Chatbot -->
-  <div class="chatbot-container" id="chatbotContainer">
+  <!-- Chatbot Container -->
+  <div id="chatbotContainer" class="chatbot-box">
     <div class="chatbot-header">
-      <span>FlexBot</span>
-      <button id="darkModeToggle">🌓</button>
+      <span>FlexBot 🤖</span>
+      <button id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
     </div>
-    <div class="chatbot-messages" id="chatbotMessages"></div>
-    <div class="faq-buttons">
-      <button onclick="handleFAQ('Where is my order?')">📦 Order Status</button>
-      <button onclick="handleFAQ('What is your return policy?')">↩️ Return Policy</button>
-      <button onclick="handleFAQ('How do I use the FlexCore system?')">🧠 How to Use</button>
+    <div id="chatbotMessages" class="chatbot-messages">
+      <div class="message bot"><strong>FlexBot:</strong> Hi! How can I help you today?</div>
     </div>
-    <form class="chatbot-form" onsubmit="sendMessage(event)">
-      <input type="text" id="userInput" placeholder="Ask something..." autocomplete="off" required>
-      <button type="submit">Send</button>
+    <form onsubmit="sendMessage(event)">
+      <input id="userInput" type="text" placeholder="Type your message..." />
     </form>
+    <div class="faq-buttons">
+      <button onclick="handleFAQ('How do I use FlexCore?')">How to Use</button>
+      <button onclick="handleFAQ('What is your return policy?')">Returns</button>
+      <button onclick="handleFAQ('Where is my order?')">Track Order</button>
+      <button onclick="handleFAQ('How do I contact support?')">Contact</button>
+    </div>
   </div>
 
   <script src="chatbot.js"></script>
