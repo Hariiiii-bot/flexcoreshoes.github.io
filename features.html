@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FlexCore</title>
+  <title>FlexCore - Features</title>
   <link rel="icon" href="https://i.imgur.com/vjMQVmY.png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Norwester&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      background: #8c52ff;
-      position: relative;
-      text-align: center;
-      color: white;
+    body {
+      margin: 0; padding: 2rem; font-family: 'Poppins', sans-serif; background: #f4f4ff; color: #222;
+      max-width: 900px; margin-left: auto; margin-right: auto;
     }
-
     nav {
       position: fixed;
       width: 100%;
@@ -27,8 +21,8 @@
       z-index: 1001;
       display: flex;
       justify-content: center;
+      margin: 0;
     }
-
     nav a {
       color: white;
       text-decoration: none;
@@ -37,248 +31,12 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: #7ba9ff;
     }
-
-    #color-swipe {
-      position: fixed;
-      top: 0; left: 0;
-      width: 0;
-      height: 100%;
-      background: linear-gradient(90deg, #8c52ff, #004aad, #23a6d5, #7ba9ff);
-      z-index: 1000;
-      pointer-events: none;
-      transition: width 0.8s ease;
-      mix-blend-mode: normal;
-    }
-
-    #home {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      color: white;
-      padding: 0 2vw;
-      overflow: hidden;
-    }
-
-    .infinity {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: url('https://i.imgur.com/uiVsiW4.png') no-repeat center center;
-      background-size: contain;
-      opacity: 0.15;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .content {
-      z-index: 1;
-      max-width: 900px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .title {
-      font-size: 13vw;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-      animation: popIn 1s ease-out;
-      font-family: 'Poppins', sans-serif;
-      white-space: nowrap;
-      overflow: visible;
-      display: inline-block;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .title .flex {
-      color: #1d419f;
-    }
-
-    .title .core {
-      color: #233ce6;
-    }
-
-    .description {
-      font-size: 1.8vw;
-      margin-top: 1rem;
-      color: white;
-      line-height: 1.3;
-      max-width: 700px;
-      text-align: center;
-    }
-
-    .slogan {
-      font-family: 'Norwester', sans-serif;
-      font-size: 4vw;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 8rem;
-      color: #ffffff;
-      text-shadow:
-        0 0 12px #1d419f,
-        0 0 24px #004aad,
-        0 0 36px #23a6d5;
-      animation: popOutSlogan 2s ease forwards;
-    }
-
-    @keyframes popOutSlogan {
-      0% {
-        opacity: 0;
-        transform: scale(0.7);
-        filter: drop-shadow(0 0 0 #1e3a8a);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-        filter:
-          drop-shadow(0 0 12px #1d419f)
-          drop-shadow(0 0 24px #004aad)
-          drop-shadow(0 0 36px #23a6d5);
-      }
-    }
-
-    .arrow-bounce {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 60px;
-      background-color: #0a2472;
-      border-radius: 50%;
-      border: 3px solid #7ba9ff;
-      box-shadow: 0 0 10px rgba(123, 169, 255, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      z-index: 2;
-    }
-
-    .arrow-bounce:hover {
-      background-color: #1a3a9a;
-    }
-
-    .arrow-bounce svg {
-      width: 32px;
-      height: 32px;
-      fill: none;
-      stroke: #7ba9ff;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-
-    .product-section {
-      background: #f4f4ff;
-      padding: 5rem 2rem;
-      min-height: 100vh;
-      position: relative;
-      color: #333;
-      text-align: left;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 16px;
-      padding: 1rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-    }
-
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .product-card h3 {
-      font-size: 1.5rem;
-      margin: 0.5rem 0;
-    }
-
-    .product-card .desc {
-      color: #444;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .product-card .price {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #233ce6;
-    }
-
-    .buy-now-fixed {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #233ce6;
-      color: white;
-      padding: 1rem 0;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      cursor: pointer;
-      z-index: 1002;
-      display: none;
-    }
-
-    .buy-now-fixed.visible {
-      display: block;
-    }
-
-    /* New Styles for Features Section */
-
     .feature-section {
-      background: white;
-      color: #222;
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: 0 auto 6rem auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      text-align: left;
+      padding-top: 5rem;
     }
-
     .feature-section h1 {
       text-align: center;
       font-family: 'Norwester', sans-serif;
@@ -287,19 +45,26 @@
       color: #233ce6;
       user-select: none;
     }
-
     .feature {
       border-bottom: 1px solid #ddd;
-      padding: 1rem 0;
+      padding: 1rem 1rem;
       cursor: pointer;
       position: relative;
       user-select: none;
+      background: white;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 0 transparent;
     }
-
+    .feature:hover {
+      background-color: #e6edff;
+      box-shadow: 0 4px 10px rgba(35, 60, 230, 0.15);
+    }
     .feature:last-child {
       border-bottom: none;
+      margin-bottom: 0;
     }
-
     .feature h2 {
       margin: 0;
       font-weight: 700;
@@ -309,170 +74,108 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .feature p {
       margin-top: 0.5rem;
       color: #444;
       font-weight: 400;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
       padding-left: 1rem;
+      transition: max-height 0.5s ease, padding 0.5s ease;
     }
-
     .feature.active p {
-      max-height: 150px; /* enough for paragraph */
+      max-height: 200px;
       padding-left: 1rem;
     }
-
     .arrow {
       font-size: 1.5rem;
       transition: transform 0.4s ease;
       user-select: none;
+      display: inline-block;
     }
-
     .feature.active .arrow {
       transform: rotate(90deg);
     }
-
+    .arrow:hover {
+      animation: bounceArrow 0.6s ease infinite;
+    }
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
     @media (max-width: 768px) {
-      .title { font-size: 10vw; }
-      .description { font-size: 3vw; }
-      .slogan { font-size: 5vw; }
-      .product-grid { grid-template-columns: 1fr; }
-      .feature-section {
-        padding: 3rem 1rem;
-        margin-bottom: 3rem;
+      body {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
- <nav>
-  <a href="index.html">Home</a>
-  <a href="shop.html">Shop</a>
-  <a href="features.html">Features</a>
-  <a href="support.html">Support</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="features.html">Features</a>
+    <a href="support.html">Support</a>
+  </nav>
 
-  <div id="color-swipe"></div>
-
-  <section id="home">
-    <div class="infinity"></div>
-    <div class="content">
-      <div class="title">
-        <span class="flex">FLEX</span><span class="core">CORE</span>
-      </div>
-      <div class="description">
-        Discover the ultimate in adaptability and style — FLEXCORE is the next-generation modular shoe system engineered for performance, fashion, and every lifestyle.
-      </div>
-      <div class="slogan">Transform Every Step!</div>
-      <div class="arrow-bounce" id="scrollButton" role="button" aria-label="Scroll to products" tabindex="0">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4v16m0 0l-6-6m6 6l6-6" />
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section class="feature-section" id="features">
+  <section class="feature-section" id="features" tabindex="0">
     <h1>FlexCore Key Features</h1>
 
-    <div class="feature">
+    <div class="feature" tabindex="0" role="button" aria-expanded="false" aria-controls="modular-desc">
       <h2>Modular Design <span class="arrow">▶</span></h2>
-      <p>Mix and match cores and soles effortlessly to customize your shoes for style, comfort, and activity.</p>
+      <p id="modular-desc">Mix and match cores and soles effortlessly to customize your shoes for style, comfort, and activity.</p>
     </div>
 
-    <div class="feature">
+    <div class="feature" tabindex="0" role="button" aria-expanded="false" aria-controls="eco-desc">
       <h2>Eco-Friendly Materials <span class="arrow">▶</span></h2>
-      <p>Made from sustainable, recycled, and eco-friendly materials to reduce environmental impact without compromising durability.</p>
+      <p id="eco-desc">Made from sustainable, recycled, and eco-friendly materials to reduce environmental impact without compromising durability.</p>
     </div>
 
-    <div class="feature">
+    <div class="feature" tabindex="0" role="button" aria-expanded="false" aria-controls="performance-desc">
       <h2>Versatile Performance <span class="arrow">▶</span></h2>
-      <p>Perfect for sports, casual wear, and everything in between with specialized cores tailored for each activity.</p>
+      <p id="performance-desc">Perfect for sports, casual wear, and everything in between with specialized cores tailored for each activity.</p>
     </div>
 
-    <div class="feature">
+    <div class="feature" tabindex="0" role="button" aria-expanded="false" aria-controls="style-desc">
       <h2>Stylish & Trendy <span class="arrow">▶</span></h2>
-      <p>Bold colors and sleek designs let you make a statement while staying comfortable all day long.</p>
+      <p id="style-desc">Bold colors and sleek designs let you make a statement while staying comfortable all day long.</p>
     </div>
 
-    <div class="feature">
+    <div class="feature" tabindex="0" role="button" aria-expanded="false" aria-controls="clean-desc">
       <h2>Easy to Clean <span class="arrow">▶</span></h2>
-      <p>Removable parts and easy-care materials keep your FlexCore shoes looking fresh with minimal effort.</p>
+      <p id="clean-desc">Removable parts and easy-care materials keep your FlexCore shoes looking fresh with minimal effort.</p>
     </div>
   </section>
-
-  <section class="product-section" id="products">
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/GuSEaVq.png" alt="Basic Bare" />
-        <h3>Basic Bare</h3>
-        <p class="desc">One pair with no soles. Lace or slip-in.</p>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="product-card">
-        <img src="https://i.imgur.com/myAyR8N.png" alt="Starter Kit" />
-        <h3>Starter Kit</h3>
-        <p class="desc">Basic Bare + any 2 cores of your choice.</p>
-        <p class="price">$94.99</p>
-      </div>
-      <div class="product-card">
-        <img src="https://i.imgur.com/MfhviPW.png" alt="Casual Cores" />
-        <h3>Casual Cores</h3>
-        <p class="desc">Perfect for daily wear, sports, and fashion.</p>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="product-card">
-        <img src="http://i.imgur.com/KmfodAU.png" alt="Cleat Cores" />
-        <h3>Cleat Cores</h3>
-        <p class="desc">Soccer cleats recommended by top coaches.</p>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="product-card">
-        <img src="https://i.imgur.com/MuvrLOV.png" alt="Roller Cores" />
-        <h3>Roller Cores</h3>
-        <p class="desc">Rollers on the bottom. Basic or advanced.</p>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="product-card">
-        <img src="https://i.imgur.com/kyuImHk.png" alt="Running Cores" />
-        <h3>Running Cores</h3>
-        <p class="desc">Lightweight, cushioned, track-ready design.</p>
-        <p class="price">$19.99</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="buy-now-fixed" id="buyNowBar">Buy Now</div>
 
   <script>
-    const scrollButton = document.getElementById('scrollButton');
-    const swipe = document.getElementById('color-swipe');
-    scrollButton.addEventListener('click', () => {
-      swipe.style.width = '100vw';
-      setTimeout(() => {
-        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-          swipe.style.width = '0';
-        }, 700);
-      }, 400);
-    });
-
-    const buyNowBar = document.getElementById('buyNowBar');
-    window.addEventListener('scroll', () => {
-      const products = document.getElementById('products');
-      const rect = products.getBoundingClientRect();
-      const visible = rect.top < window.innerHeight && rect.bottom > 0;
-      buyNowBar.classList.toggle('visible', visible);
-    });
-
-    // Feature expand/collapse interaction
     const features = document.querySelectorAll('.feature');
+
+    function toggleFeature(feature) {
+      const isActive = feature.classList.contains('active');
+
+      // Accordion behavior: close all features first
+      features.forEach(f => {
+        f.classList.remove('active');
+        f.setAttribute('aria-expanded', 'false');
+      });
+
+      // If it was closed, open it
+      if (!isActive) {
+        feature.classList.add('active');
+        feature.setAttribute('aria-expanded', 'true');
+      }
+    }
+
     features.forEach(feature => {
       feature.addEventListener('click', () => {
-        feature.classList.toggle('active');
+        toggleFeature(feature);
+      });
+
+      feature.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFeature(feature);
+        }
       });
     });
   </script>
