@@ -19,12 +19,15 @@
   <main style="padding-top: 100px; text-align: center;">
     <h1 style="color: #233ce6;">Need Help? We're Here!</h1>
     <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-      Welcome to FlexCore Support! Ask FlexBot your questions or check our FAQ for quick answers about shipping, returns, and more.
+      Welcome to FlexCore Support! Click the chat icon to start chatting with FlexBot.
     </p>
   </main>
 
+  <!-- Floating Chat Icon -->
+  <div id="chat-toggle" title="Chat with FlexBot">💬</div>
+
   <!-- Chatbot -->
-  <div id="chatbot">
+  <div id="chatbot" class="hidden">
     <div id="chat-header">💬 FlexBot – Your Shoe Support Buddy</div>
     <div id="chat-log"></div>
     <div id="chat-input-container">
@@ -36,17 +39,30 @@
   <script>
     const chatLog = document.getElementById("chat-log");
     const input = document.getElementById("chat-input");
+    const chatbot = document.getElementById("chatbot");
+    const toggle = document.getElementById("chat-toggle");
+
+    // Load chat history
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem("flexbot-chat");
+      if (saved) chatLog.innerHTML = saved;
+    });
+
+    // Toggle chatbot visibility
+    toggle.addEventListener("click", () => {
+      chatbot.classList.toggle("hidden");
+    });
 
     function sendMessage() {
       const text = input.value.trim();
-      if (text === "") return;
+      if (!text) return;
 
       appendMessage(text, "user");
 
       const response = getBotResponse(text.toLowerCase());
       setTimeout(() => {
         appendMessage(response, "bot");
-      }, 600);
+      }, 500);
 
       input.value = "";
     }
@@ -57,21 +73,24 @@
       msgDiv.textContent = msg;
       chatLog.appendChild(msgDiv);
       chatLog.scrollTop = chatLog.scrollHeight;
+
+      // Save to localStorage
+      localStorage.setItem("flexbot-chat", chatLog.innerHTML);
     }
 
     function getBotResponse(input) {
       if (input.includes("return") || input.includes("refund")) {
         return "We offer 30-day free returns — just keep the box and receipt!";
       } else if (input.includes("shipping") || input.includes("ship")) {
-        return "We offer free U.S. shipping. Orders usually arrive in 3–5 business days.";
+        return "Free U.S. shipping. Orders usually arrive in 3–5 business days.";
       } else if (input.includes("how does it work") || input.includes("modular")) {
-        return "FlexCore lets you swap out cores to change your shoe’s function — from fashion to sport!";
+        return "FlexCore lets you swap cores — change your shoe’s function instantly!";
       } else if (input.includes("hello") || input.includes("hi")) {
         return "Hey there! 👋 I'm FlexBot. How can I help you today?";
       } else if (input.includes("track") || input.includes("order")) {
-        return "You can track your order using the link in your email. Need help? Let me know!";
+        return "You can track your order from the email confirmation you received.";
       } else if (input.includes("sustainability") || input.includes("eco")) {
-        return "All FlexCore products are made with eco-friendly materials 🌱 and recyclable packaging!";
+        return "All FlexCore products are made from eco-friendly and recyclable materials 🌱.";
       } else {
         return "Hmm... I'm not sure. Try asking about shipping, returns, or how our shoes work!";
       }
